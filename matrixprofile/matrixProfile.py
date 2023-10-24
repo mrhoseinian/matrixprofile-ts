@@ -245,6 +245,9 @@ def _matrixProfile_stomp(tsA,m,orderClass,distanceProfileFunction,tsB=None):
         if idx == 0:
             dot_first = dot_prev
 
+        # Set distance values for all windows before 'idx' to infinity
+        distanceProfile[:idx] = np.inf
+
         #Check which of the indices have found a new minimum
         idsToUpdate = distanceProfile < mp
 
